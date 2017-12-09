@@ -15,7 +15,7 @@ class Counter extends Component {
   }
 
   incrementAsync() {
-    setTimeout(this.props.onIncrement, 1000)
+    this.props.onIncrementAsync()
   }
 
   render() {
@@ -47,7 +47,8 @@ class Counter extends Component {
 Counter.propTypes = {
   value: PropTypes.number.isRequired,
   onIncrement: PropTypes.func.isRequired,
-  onDecrement: PropTypes.func.isRequired
+  onDecrement: PropTypes.func.isRequired,
+  onIncrementAsync: PropTypes.func.isRequired,
 }
 
 export default Counter

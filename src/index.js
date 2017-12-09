@@ -1,27 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-//import { createStore } from 'redux'
-import Counter from './components/Counter'
-//import counter from './reducers'
+import Counter from './containers/Counter'
 import Store from 'react-observable-store'
-//const store = createStore(counter)
 
+// Init store with 'counter' namespace
 Store.init({
-    counter: {
-        value: 0
-    }
-})
+    counter: { value: 0 }
+}, true)
 
 const rootEl = document.getElementById('root')
 
-const render = () => ReactDOM.render(
-  <Counter
-    value={store.getState()}
-    onIncrement={() => store.dispatch({ type: 'INCREMENT' })}
-    onDecrement={() => store.dispatch({ type: 'DECREMENT' })}
-  />,
-  rootEl
-)
-
-render()
-store.subscribe(render)
+ReactDOM.render(<Counter />, rootEl)

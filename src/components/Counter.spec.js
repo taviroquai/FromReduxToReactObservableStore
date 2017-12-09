@@ -5,7 +5,8 @@ import Counter from './Counter'
 function setup(value = 0) {
   const actions = {
     onIncrement: jest.fn(),
-    onDecrement: jest.fn()
+    onDecrement: jest.fn(),
+    onIncrementAsync: jest.fn()
   }
   const component = shallow(
     <Counter value={value} {...actions} />
@@ -55,12 +56,9 @@ describe('Counter component', () => {
     expect(actions.onIncrement).toBeCalled()
   })
 
-  it('fourth button should call onIncrement in a second', (done) => {
+  it('fourth button should call onIncrementAsync', () => {
     const { buttons, actions } = setup()
     buttons.at(3).simulate('click')
-    setTimeout(() => {
-      expect(actions.onIncrement).toBeCalled()
-      done()
-    }, 1000)
+    expect(actions.onIncrementAsync).toBeCalled()
   })
 })
