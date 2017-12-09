@@ -1,10 +1,17 @@
-# Redux Counter Example
+# From Redux to Observable Store (Counter Example)
 
-This project template was built with [Create React App](https://github.com/facebookincubator/create-react-app), which provides a simple way to start React projects with no build configuration needed.
+This repo demonstrates the changes required from using Redux to [React Observable Store](https://github.com/taviroquai/ReactObservableStore).
 
-Projects built with Create-React-App include support for ES6 syntax, as well as several unofficial / not-yet-final forms of Javascript syntax such as Class Properties and JSX.  See the list of [language features and polyfills supported by Create-React-App](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#supported-language-features-and-polyfills) for more information.
+## Changes Highlights
+1. The Store is also created in index.js
+2. The call to store updates were moved from index.js to the container "Counter"
+3. The container Counter is exported "withStore" to automaticaly apply changes from Store
+4. The reducers folder is not necessary anymore
 
-## Available Scripts
+## Redux Inspiration
+Redux inspired a lot of other software and also the React Observable Store. React Observable Store only uses the key feature of Redux: the Observer pattern, which radicaly simplifies the data flow (no need for reducers), yet tries to achieve the same funcionality.
+
+## Available Scripts (this section is from from redux repo)
 
 In the project directory, you can run:
 
